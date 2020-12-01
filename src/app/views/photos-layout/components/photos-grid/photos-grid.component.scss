@@ -1,0 +1,21 @@
+.photos-container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photos-container .photo-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 10px;
+    border-radius: 3px;
+}
