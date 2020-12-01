@@ -1,12 +1,12 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {SearchLayoutComponent} from './view/search-layout.component';
+import {PhotosLayoutComponent} from './view/photos-layout.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'search', pathMatch: 'full'},
   {
     path: 'search',
-    component: SearchLayoutComponent
+    component: PhotosLayoutComponent
   }
 ];
 
@@ -14,4 +14,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SearchLayoutRouting {}
+export class PhotosLayoutRouting {}

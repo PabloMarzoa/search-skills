@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'pictures', pathMatch: 'full'},
+  {path: '', redirectTo: 'photos', pathMatch: 'full'},
   {
-    path: 'pictures',
-    loadChildren: () => import('./views/search-layout/search-layout.module').then(m => m.SearchLayoutModule)
+    path: 'photos',
+    loadChildren: () => import('./views/photos-layout/photos-layout.module').then(m => m.PhotosLayoutModule)
   }
 ];
 
