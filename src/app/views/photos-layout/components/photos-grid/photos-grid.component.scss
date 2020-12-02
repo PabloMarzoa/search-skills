@@ -1,0 +1,35 @@
+.photos-container {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photos-container .photo-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 1;
+    max-height: 300px;
+    margin: 10px;
+    border-radius: 3px;
+    max-width: 95%;
+    @media(min-width: 500px) {
+        max-width: 90vw;
+    }
+    @media(min-width: 700px) {
+        max-width: 45vw;
+    }
+    @media(min-width: 900px) {
+        max-width: 30vw;
+    }
+    @media(min-width: 1400px) {
+        max-width: 15vw;
+    }
+}
+
+.photo-frame .photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
