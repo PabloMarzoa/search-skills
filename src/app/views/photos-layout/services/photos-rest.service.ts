@@ -11,11 +11,11 @@ export class PhotosRestService {
         private restManager: RestManagerService
     ) {}
 
-    getPhotos(): Observable<Photo[]> {
-        return this.restManager.callGETMethod('https://api.unsplash.com/photos');
+    getPhotos(page: number, perPage: number): Observable<Photo[]> {
+        return this.restManager.callGETMethod(`https://api.unsplash.com/photos?page=${page}&per_page=${perPage}`);
     }
 
-    getPhotosByFilterAndPage(filter: string, page: number): Observable<PhotosQuery> {
-        return this.restManager.callGETMethod(`https://api.unsplash.com/search/photos?query=${filter}&page=${page}`);
+    getPhotosByFilterAndPage(filter: string, page: number, perPage: number): Observable<PhotosQuery> {
+        return this.restManager.callGETMethod(`https://api.unsplash.com/search/photos?query=${filter}&page=${page}&per_page=${perPage}`);
     }
 }

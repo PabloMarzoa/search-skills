@@ -1,7 +1,6 @@
 import {Component, OnDestroy} from '@angular/core';
 import {Observable} from 'rxjs';
 import {PhotosStateQueryService} from '../../state/photos-state-query.service';
-import {takeWhile} from 'rxjs/operators';
 import {PhotosQuery} from '../../models/photos-query';
 import {PhotosService} from '../../services/photos.service';
 
@@ -20,8 +19,6 @@ export class PhotosGridComponent implements OnDestroy {
         private photosService: PhotosService
     ) {
         this.photos$ = this.photosQueryService.getPhotos$;
-        this.photos$.pipe(takeWhile(() => this.alive))
-            .subscribe(photos => console.log('test-photos', photos));
     }
 
     ngOnDestroy(): void {

@@ -5,11 +5,12 @@ import {PhotosQuery} from '../models/photos-query';
 export interface PhotosState {
     filter: string | null;
     page: number;
+    per_page: number;
     photos: PhotosQuery;
 }
 
 export function createInitialName(): PhotosState {
-    return {filter: null, page: 1, photos: {total: 0, total_pages: 0, results: []}};
+    return {filter: '', page: 1,  per_page: 20, photos: {total: 0, total_pages: 0, results: []}};
 }
 
 @Injectable()
