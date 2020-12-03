@@ -1,0 +1,16 @@
+.photos-search-container {
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.photos-search-container .photos-search-icon{
+    &:hover {
+        cursor: default;
+    }
+}
+
+.photos-search-container .photos-search-field{
+    margin-left: 10px;
+}

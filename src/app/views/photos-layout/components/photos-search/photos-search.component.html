@@ -1,0 +1,8 @@
+<div class="photos-search-container">
+    <mat-icon class="photos-search-icon">
+        image_search
+    </mat-icon>
+    <mat-form-field class="photos-search-field" [floatLabel]="'never'">
+        <input matInput type="text" placeholder="search photo" [(ngModel)]="filter" (ngModelChange)="filterHasChanged($event)">
+    </mat-form-field>
+</div>

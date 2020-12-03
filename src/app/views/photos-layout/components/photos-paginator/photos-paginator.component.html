@@ -3,5 +3,6 @@
     [length]="itemsLength$ | async"
     [pageSize]="pageSize$ | async"
     [pageSizeOptions]="[5, 10, 20, 30]"
+    [pageIndex]="page$ | async"
     (page)="onPageChanges($event)">
 </mat-paginator>

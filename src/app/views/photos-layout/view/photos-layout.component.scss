@@ -15,11 +15,15 @@
     height: 75px;
     display: flex;
     align-items: center;
-    padding: 0 1em;
+    justify-content: space-between;
 }
 
 .photos-layout-header .title {
     margin-left: 0.5em;
+}
+
+.photos-layout-header .photos-search {
+    justify-self: center;
 }
 
 
