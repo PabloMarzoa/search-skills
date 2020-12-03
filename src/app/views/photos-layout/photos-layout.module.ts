@@ -8,19 +8,24 @@ import {PhotosGridComponent} from './components/photos-grid/photos-grid.componen
 import {PhotosStateStore} from './state/photos-state.store';
 import {PhotosStateQueryService} from './state/photos-state-query.service';
 import {PhotosService} from './services/photos.service';
+import {PhotosPaginatorComponent} from './components/photos-paginator/photos-paginator.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
     imports: [
         CommonModule,
         PhotosLayoutRouting,
-        MatIconModule
+        MatIconModule,
+        MatPaginatorModule
     ],
     declarations: [
         PhotosLayoutComponent,
-        PhotosGridComponent
+        PhotosGridComponent,
+        PhotosPaginatorComponent
     ],
     exports: [
-        PhotosGridComponent
+        PhotosGridComponent,
+        PhotosPaginatorComponent
     ],
     providers: [
         PhotosRestService,

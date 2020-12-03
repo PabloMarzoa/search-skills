@@ -24,13 +24,17 @@ export class PhotosService {
         this.photosStore.setPage(page);
     }
 
+    setPageSize(pageSize: number): void {
+        this.photosStore.setPageSize(pageSize);
+    }
+
     private listenStoreChanges(): void {
         combineLatest(
-            this.photosQueryService.getFilter$,
-            this.photosQueryService.getPage$,
-            this.photosQueryService.getPerPage$,
+            this.photosQueryService.filter$,
+            this.photosQueryService.page$,
+            this.photosQueryService.pageSize$,
             (filter, page, perPage) => ({filter, page, perPage})
-        ).pipe(debounceTime(500)).subscribe(res => {
+        ).pipe(debounceTime(250)).subscribe(res => {
             this.getPhotos(res.filter, res.page, res.perPage);
         });
     }

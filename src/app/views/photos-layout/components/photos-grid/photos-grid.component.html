@@ -1,5 +1,5 @@
 <div class="photos-container">
     <div class="photo-frame" *ngFor="let photo of (photos$ | async).results">
-        <img class="photo" src="{{photo.urls.regular}}" alt="{{photo.alt_description}}"/>
+        <img class="photo" src="{{photo.urls.small}}" alt="{{photo.alt_description}}"/>
     </div>
 </div>

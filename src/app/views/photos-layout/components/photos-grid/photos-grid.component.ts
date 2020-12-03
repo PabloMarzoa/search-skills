@@ -18,7 +18,7 @@ export class PhotosGridComponent implements OnDestroy {
         private photosQueryService: PhotosStateQueryService,
         private photosService: PhotosService
     ) {
-        this.photos$ = this.photosQueryService.getPhotos$;
+        this.photos$ = this.photosQueryService.photos$;
     }
 
     ngOnDestroy(): void {
