@@ -3,7 +3,7 @@ import {PhotosStateStore} from '../state/photos-state.store';
 import {PhotosStateQueryService} from '../state/photos-state-query.service';
 import {combineLatest} from 'rxjs';
 import {PhotosRestService} from './photos-rest.service';
-import {debounceTime, take} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, take} from 'rxjs/operators';
 
 @Injectable()
 export class PhotosService {
@@ -17,6 +17,7 @@ export class PhotosService {
     }
 
     setFilter(filter: string): void {
+        this.setPage(1);
         this.photosStore.setFilter(filter);
     }
 
@@ -25,6 +26,7 @@ export class PhotosService {
     }
 
     setPageSize(pageSize: number): void {
+        this.setPage(1);
         this.photosStore.setPageSize(pageSize);
     }
 
@@ -34,7 +36,7 @@ export class PhotosService {
             this.photosQueryService.page$,
             this.photosQueryService.pageSize$,
             (filter, page, perPage) => ({filter, page, perPage})
-        ).pipe(debounceTime(250)).subscribe(res => {
+        ).pipe(debounceTime(250), distinctUntilChanged()).subscribe(res => {
             this.getPhotos(res.filter, res.page, res.perPage);
         });
     }

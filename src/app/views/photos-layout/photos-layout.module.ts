@@ -10,22 +10,29 @@ import {PhotosStateQueryService} from './state/photos-state-query.service';
 import {PhotosService} from './services/photos.service';
 import {PhotosPaginatorComponent} from './components/photos-paginator/photos-paginator.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {PhotosSearchComponent} from './components/photos-search/photos-search.component';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
         PhotosLayoutRouting,
         MatIconModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatInputModule,
+        FormsModule
     ],
     declarations: [
         PhotosLayoutComponent,
         PhotosGridComponent,
-        PhotosPaginatorComponent
+        PhotosPaginatorComponent,
+        PhotosSearchComponent
     ],
     exports: [
         PhotosGridComponent,
-        PhotosPaginatorComponent
+        PhotosPaginatorComponent,
+        PhotosSearchComponent
     ],
     providers: [
         PhotosRestService,

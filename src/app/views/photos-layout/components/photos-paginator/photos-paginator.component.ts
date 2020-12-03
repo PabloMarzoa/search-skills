@@ -13,18 +13,27 @@ import {map} from 'rxjs/operators';
 export class PhotosPaginatorComponent {
     public pageSize$: Observable<number>;
     public itemsLength$: Observable<number>;
-
+    public page$: Observable<number>;
+    private lastPageSelected = 0;
+    private lastPageSizeSelected = 0;
 
     constructor(
         private photosQueryService: PhotosStateQueryService,
         private photosService: PhotosService
     ) {
-        this.itemsLength$ = this.photosQueryService.photos$.pipe(map(items => items.total_pages));
+        this.page$ = this.photosQueryService.page$.pipe(map(index => index - 1));
+        this.itemsLength$ = this.photosQueryService.photos$.pipe(map(items => items.total));
         this.pageSize$ = this.photosQueryService.pageSize$;
     }
 
     onPageChanges(ev: PageEvent): void {
-        this.photosService.setPage(ev.pageIndex + 1);
-        this.photosService.setPageSize(ev.pageSize);
+        if (ev.pageIndex !== this.lastPageSelected) {
+            this.lastPageSelected = ev.pageIndex;
+            this.photosService.setPage(ev.pageIndex + 1);
+        }
+        if (ev.pageSize !== this.lastPageSizeSelected) {
+            this.lastPageSizeSelected = ev.pageSize;
+            this.photosService.setPageSize(ev.pageSize);
+        }
     }
 }
