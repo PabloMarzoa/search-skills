@@ -29,6 +29,10 @@ export class PhotosStateStore extends Store<PhotosState> {
         this.update({page});
     }
 
+    setPageSize(pageSize: number): void {
+        this.update({per_page: pageSize});
+    }
+
     setPhotos(photos: PhotosQuery): void {
         this.update({photos});
     }

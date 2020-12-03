@@ -1,0 +1,7 @@
+<mat-paginator
+    class="photos-paginator"
+    [length]="itemsLength$ | async"
+    [pageSize]="pageSize$ | async"
+    [pageSizeOptions]="[5, 10, 20, 30]"
+    (page)="onPageChanges($event)">
+</mat-paginator>
