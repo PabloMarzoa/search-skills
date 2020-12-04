@@ -2,7 +2,9 @@ import {Component, OnDestroy} from '@angular/core';
 import {Observable} from 'rxjs';
 import {PhotosStateQueryService} from '../../state/photos-state-query.service';
 import {PhotosQuery} from '../../models/photos-query';
-import {PhotosService} from '../../services/photos.service';
+import {MatDialog} from '@angular/material/dialog';
+import {Photo} from '../../models/photo';
+import {PhotoViewerComponent} from '../../modals/photo-viewer/photo-viewer.component';
 
 @Component({
     templateUrl: 'photos-grid.component.html',
@@ -16,12 +18,16 @@ export class PhotosGridComponent implements OnDestroy {
 
     constructor(
         private photosQueryService: PhotosStateQueryService,
-        private photosService: PhotosService
+        private dialog: MatDialog
     ) {
         this.photos$ = this.photosQueryService.photos$;
     }
 
     ngOnDestroy(): void {
         this.alive = false;
+    }
+
+    onOpenPhoto(photo: Photo): void {
+        this.dialog.open(PhotoViewerComponent, {data: {photo}});
     }
 }

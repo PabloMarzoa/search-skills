@@ -13,21 +13,31 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {PhotosSearchComponent} from './components/photos-search/photos-search.component';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {PhotoViewerComponent} from './modals/photo-viewer/photo-viewer.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {PhotoTitlePipe} from './pipes/photo-title.pipe';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
     imports: [
         CommonModule,
-        PhotosLayoutRouting,
         MatIconModule,
         MatPaginatorModule,
         MatInputModule,
-        FormsModule
+        MatDialogModule,
+        PhotosLayoutRouting,
+        FormsModule,
+        MatButtonModule,
+        MatMenuModule
     ],
     declarations: [
         PhotosLayoutComponent,
         PhotosGridComponent,
         PhotosPaginatorComponent,
-        PhotosSearchComponent
+        PhotosSearchComponent,
+        PhotoViewerComponent,
+        PhotoTitlePipe
     ],
     exports: [
         PhotosGridComponent,

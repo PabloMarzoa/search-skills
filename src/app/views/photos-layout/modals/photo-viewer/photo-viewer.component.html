@@ -1,0 +1,66 @@
+<div mat-dialog-title class="photo-modal-header">
+    <div class="photo-modal-title">
+            {{photo | title}}
+    </div>
+    <div class="photo-modal-actions">
+        <button mat-icon-button [title]="'zoom in'" (click)="onZoomIn()" color="primary">
+            <mat-icon>zoom_in</mat-icon>
+        </button>
+        <button mat-icon-button [title]="'zoom out'" (click)="onZoomOut()" color="primary" [disabled]="zoom === 0">
+            <mat-icon>zoom_out</mat-icon>
+        </button>
+        <button mat-icon-button [title]="'rotate left'" (click)="onRotate(-90)" color="primary">
+            <mat-icon>rotate_left</mat-icon>
+        </button>
+        <button mat-icon-button [title]="'rotate right'" (click)="onRotate(90)" color="primary">
+            <mat-icon>rotate_right</mat-icon>
+        </button>
+        <button mat-icon-button [title]="'download'" (click)="onDownloadImage()" color="primary">
+            <mat-icon>get_app</mat-icon>
+        </button>
+        <button mat-icon-button [title]="'close'" (click)="onClose()" color="warn">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="photo-modal-menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" [title]="'menu'">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onZoomIn()">
+                <mat-icon>zoom_in</mat-icon>
+                <span>Zoom in</span>
+            </button>
+            <button mat-menu-item [title]="'zoom out'" (click)="onZoomOut()" [disabled]="zoom === 0">
+                <mat-icon>zoom_out</mat-icon>
+                <span>Zoom out</span>
+            </button>
+            <button mat-menu-item [title]="'rotate left'" (click)="onRotate(-90)">
+                <mat-icon>rotate_left</mat-icon>
+                <span>Rotate left</span>
+            </button>
+            <button mat-menu-item [title]="'rotate right'" (click)="onRotate(90)">
+                <mat-icon>rotate_right</mat-icon>
+                <span>Rotate right</span>
+            </button>
+            <button mat-menu-item [title]="'download'" (click)="onDownloadImage()">
+                <mat-icon>get_app</mat-icon>
+                <span>Download</span>
+            </button>
+            <button mat-menu-item [title]="'close'" (click)="onClose()">
+                <mat-icon>close</mat-icon>
+                <span>Close</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>
+
+<div mat-dialog-content class="photo-modal-body">
+    <div class="photo-container" #imageContainer>
+        <div class="photo-image" #image
+             (wheel)="mouseWheelZoom($event)"
+             (touchstart)="onStartDragByTouch($event)"
+             (mousedown)="onStartDragWithMouse($event)">
+        </div>
+    </div>
+</div>
