@@ -1,0 +1,68 @@
+// Header
+.photo-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    width: 100%;
+    &:hover {
+        cursor: default;
+    }
+}
+
+.photo-modal-header .photo-modal-title {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: calc(100% - 260px);
+    text-overflow: ellipsis;
+    @media (max-width: 576px ) {
+        width: calc(100% - 20px);
+    }
+}
+
+.photo-modal-header .photo-modal-actions {
+    width: 240px;
+    @media (max-width: 576px ) {
+        display: none;
+    }
+}
+
+.photo-modal-header .photo-modal-menu {
+    display: none;
+    @media (max-width: 576px ) {
+        display: inherit;
+        width: 20px;
+    }
+}
+
+
+// Body
+.photo-modal-body {
+    max-height: 75vh;
+    max-width: 75vw;
+}
+
+.photo-modal-body .photo-container {
+    height: 75vh;
+    width: 75vw;
+    overflow: hidden;
+    @media (max-width: 576px ) {
+        width: 70vw;
+    }
+}
+
+.photo-container .photo-image {
+    min-height: 100%;
+    min-width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform linear 100ms;
+    &:hover {
+        cursor: crosshair;
+    }
+}
+
