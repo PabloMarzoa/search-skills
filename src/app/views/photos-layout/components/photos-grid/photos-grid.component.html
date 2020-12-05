@@ -2,7 +2,23 @@
     <div class="photo-frame" *ngFor="let photo of (photos$ | async).results">
         <img class="photo"
              src="{{photo.urls.small}}"
-             alt="{{photo.alt_description}}"
-             (click)="onOpenPhoto(photo)"/>
+             alt="{{photo.alt_description}}"/>
+        <div class="photo-info"
+             (click)="onOpenPhoto(photo)">
+            <div class="photo-info-header" [title]="photo | title">
+                {{photo | title}}
+            </div>
+            <div class="photo-info-footer">
+                <img class="user-profile-image"
+                     src="{{photo.user.profile_image.small}}"
+                     [title]="'open profile'"
+                     (click)="goToLink(photo.user.links.html, $event)"/>
+                <span class="user-profile-name"
+                      [title]="'open profile'"
+                      (click)="goToLink(photo.user.links.html, $event)">
+                    {{photo.user.username}}
+                </span>
+            </div>
+        </div>
     </div>
 </div>

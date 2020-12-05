@@ -5,15 +5,12 @@
 }
 
 .photos-container .photo-frame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
-    flex-shrink: 1;
     max-height: 300px;
     margin: 10px;
     border-radius: 3px;
     max-width: 95%;
+    position: relative;
     @media(min-width: 500px) {
         max-width: 90vw;
     }
@@ -32,4 +29,63 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+
+// Info component
+.photo-frame .photo-info {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    top: 0;
+    opacity: 0;
+    &:hover {
+        animation-duration: 500ms;
+        animation-name: opacityKeyframe;
+        cursor: pointer;
+        opacity: 1;
+    }
+}
+
+
+// Info header
+.photo-info .photo-info-header {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    height: 60px;
+    color: white;
+    background: linear-gradient(to top, transparent 5%, rgba(0,0,0,0.9) 100%);
+}
+
+
+// Info footer
+.photo-info .photo-info-footer {
+    font-size: 0.8em;
+    height: 60px;
+    color: white;
+    background: linear-gradient(to bottom, transparent 5%, rgba(0,0,0,0.9) 100%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.photo-info-footer .user-profile-image {
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+
+@keyframes opacityKeyframe {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

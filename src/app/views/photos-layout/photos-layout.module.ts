@@ -18,6 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {PhotoTitlePipe} from './pipes/photo-title.pipe';
 import {MatMenuModule} from '@angular/material/menu';
+import {DivOverflowIndicatorDirective} from '../../directives/div-overflow-indicator.directive';
 
 @NgModule({
     imports: [
@@ -37,7 +38,8 @@ import {MatMenuModule} from '@angular/material/menu';
         PhotosPaginatorComponent,
         PhotosSearchComponent,
         PhotoViewerComponent,
-        PhotoTitlePipe
+        PhotoTitlePipe,
+        DivOverflowIndicatorDirective
     ],
     exports: [
         PhotosGridComponent,
