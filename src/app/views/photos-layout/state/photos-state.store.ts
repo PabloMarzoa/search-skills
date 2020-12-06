@@ -9,7 +9,7 @@ export interface PhotosState {
     photos: PhotosQuery;
 }
 
-export function createInitialName(): PhotosState {
+export function setInitialValues(): PhotosState {
     return {filter: '', page: 1,  per_page: 20, photos: {total: 0, total_pages: 0, results: []}};
 }
 
@@ -18,7 +18,7 @@ export function createInitialName(): PhotosState {
 export class PhotosStateStore extends Store<PhotosState> {
 
     constructor() {
-        super(createInitialName());
+        super(setInitialValues());
     }
 
     setFilter(filter: string): void {
@@ -35,5 +35,9 @@ export class PhotosStateStore extends Store<PhotosState> {
 
     setPhotos(photos: PhotosQuery): void {
         this.update({photos});
+    }
+
+    reset(): void {
+        this.update(setInitialValues());
     }
 }

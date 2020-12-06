@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {RestManagerService} from '../../../services/rest-manager.service';
 import {Photo} from '../models/photo';
 import {PhotosQuery} from '../models/photos-query';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class PhotosRestService {

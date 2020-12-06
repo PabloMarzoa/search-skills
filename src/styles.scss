@@ -9,6 +9,12 @@ body {
     background-color: #cfcfcf;
 }
 
+@media(max-width: 500px) {
+    .mat-paginator-range-label {
+        margin: 0 10px !important;
+    }
+}
+
 
 // Overflow indicator classes
 .overflow-bass {
