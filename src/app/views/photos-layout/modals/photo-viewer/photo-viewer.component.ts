@@ -59,7 +59,7 @@ export class PhotoViewerComponent implements AfterViewInit {
             });
     }
 
-    public onStartDragWithMouse(event): void {
+    public onStartDragWithMouse(event: MouseEvent): void {
         this.origin = {
             cursor: [event.x, event.y],
             scroll: [this.imageContainer.nativeElement.scrollLeft, this.imageContainer.nativeElement.scrollTop]
@@ -108,7 +108,7 @@ export class PhotoViewerComponent implements AfterViewInit {
             window.URL.revokeObjectURL(blob);
             link.remove();
         }, error => {
-            console.error('download error', error);
+            console.error('Download error: ', error);
             this.snackBar.open('Download error. Please, try it later', null,
                 {horizontalPosition: 'end', verticalPosition: 'top', duration: 5000});
         });
