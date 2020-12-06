@@ -8,7 +8,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
     templateUrl: 'photo-viewer.component.html',
-    styleUrls: ['photo-viewer.component.scss']
+    styleUrls: ['../modal-styles.scss']
 })
 export class PhotoViewerComponent implements AfterViewInit {
     @ViewChild('imageContainer', {static: false}) imageContainer: ElementRef;

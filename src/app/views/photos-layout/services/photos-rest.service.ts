@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {RestManagerService} from '../../../services/rest-manager.service';
-import {Photo} from '../models/photo';
+import {Photo, PhotoInfo} from '../models/photo';
 import {PhotosQuery} from '../models/photos-query';
 import {HttpClient} from '@angular/common/http';
 
@@ -15,6 +15,10 @@ export class PhotosRestService {
 
     downloadImage(url): Observable<any> {
         return this.http.get(url, {responseType: 'blob'});
+    }
+
+    getPhoto(id: string): Observable<PhotoInfo> {
+        return this.restManager.callGETMethod(`https://api.unsplash.com/photos/${id}`);
     }
 
     getPhotos(page: number, perPage: number): Observable<Photo[]> {

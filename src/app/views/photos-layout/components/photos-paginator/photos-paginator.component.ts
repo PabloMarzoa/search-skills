@@ -3,7 +3,7 @@ import {PageEvent} from '@angular/material/paginator';
 import {PhotosStateQueryService} from '../../state/photos-state-query.service';
 import {PhotosService} from '../../services/photos.service';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 
 @Component({
     templateUrl: 'photos-paginator.component.html',
@@ -23,7 +23,7 @@ export class PhotosPaginatorComponent {
     ) {
         this.page$ = this.photosQueryService.page$.pipe(map(index => index - 1));
         this.itemsLength$ = this.photosQueryService.photos$.pipe(map(items => items.total));
-        this.pageSize$ = this.photosQueryService.pageSize$;
+        this.pageSize$ = this.photosQueryService.pageSize$.pipe(tap(pageSize => this.lastPageSizeSelected = pageSize));
     }
 
     onPageChanges(ev: PageEvent): void {
@@ -32,7 +32,6 @@ export class PhotosPaginatorComponent {
             this.photosService.setPage(ev.pageIndex + 1);
         }
         if (ev.pageSize !== this.lastPageSizeSelected) {
-            this.lastPageSizeSelected = ev.pageSize;
             this.photosService.setPageSize(ev.pageSize);
         }
     }

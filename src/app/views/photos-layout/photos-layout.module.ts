@@ -12,7 +12,7 @@ import {PhotosPaginatorComponent} from './components/photos-paginator/photos-pag
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {PhotosSearchComponent} from './components/photos-search/photos-search.component';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PhotoViewerComponent} from './modals/photo-viewer/photo-viewer.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
@@ -20,6 +20,7 @@ import {PhotoTitlePipe} from './pipes/photo-title.pipe';
 import {MatMenuModule} from '@angular/material/menu';
 import {DivOverflowIndicatorDirective} from '../../directives/div-overflow-indicator.directive';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {PhotoInfoComponent} from './modals/photo-info/photo-info.component';
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatDialogModule,
         PhotosLayoutRouting,
         FormsModule,
+        ReactiveFormsModule,
         MatButtonModule,
         MatMenuModule,
         MatSnackBarModule
@@ -40,6 +42,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         PhotosPaginatorComponent,
         PhotosSearchComponent,
         PhotoViewerComponent,
+        PhotoInfoComponent,
         PhotoTitlePipe,
         DivOverflowIndicatorDirective
     ],

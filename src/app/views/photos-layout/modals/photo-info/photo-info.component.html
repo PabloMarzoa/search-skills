@@ -1,0 +1,61 @@
+<div mat-dialog-title class="photo-modal-header">
+    <div class="photo-modal-title info">
+            Info
+    </div>
+    <div class="photo-modal-actions info">
+        <button mat-icon-button [title]="'close'" (click)="onClose()" color="warn">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div mat-dialog-content class="photo-modal-body">
+    <div class="photo-info-form">
+        <form novalidate [formGroup]="photoForm">
+            <mat-form-field class="photo-info-field">
+                <mat-label>User</mat-label>
+                <input [readonly]="true" matInput formControlName="username"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Likes</mat-label>
+                <input [readonly]="true" matInput formControlName="likes"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Downloads</mat-label>
+                <input [readonly]="true" matInput formControlName="downloads"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Make</mat-label>
+                <input [readonly]="true" matInput formControlName="make"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Model</mat-label>
+                <input [readonly]="true" matInput formControlName="model"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Focal length</mat-label>
+                <input [readonly]="true" matInput formControlName="focalLength"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Aperture</mat-label>
+                <input [readonly]="true" matInput formControlName="aperture"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Exposure time</mat-label>
+                <input [readonly]="true" matInput formControlName="exposureTime"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>ISO</mat-label>
+                <input [readonly]="true" matInput formControlName="iso"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Dimensions</mat-label>
+                <input [readonly]="true" matInput formControlName="dimensions"/>
+            </mat-form-field>
+            <mat-form-field class="photo-info-field">
+                <mat-label>Published</mat-label>
+                <input [readonly]="true" matInput formControlName="published"/>
+            </mat-form-field>
+        </form>
+    </div>
+</div>
