@@ -48,7 +48,7 @@ export class PhotosService {
             });
         } else {
             this.photosRestService.getPhotos(page, perPage).pipe(take(1)).subscribe(res => {
-                this.photosStore.setPhotos({total_pages: 1, total: 10, results: res});
+                this.photosStore.setPhotos({total_pages: 1, total: perPage, results: res});
             });
         }
     }

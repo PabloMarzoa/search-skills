@@ -4,6 +4,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {fromEvent, race} from 'rxjs';
 import {take, takeUntil} from 'rxjs/operators';
 import {PhotosRestService} from '../../services/photos-rest.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
     templateUrl: 'photo-viewer.component.html',
@@ -22,6 +23,7 @@ export class PhotoViewerComponent implements AfterViewInit {
 
     constructor(
         private renderer: Renderer2,
+        private snackBar: MatSnackBar,
         private restService: PhotosRestService,
         private dialogRef: MatDialogRef<PhotoViewerComponent>,
         @Inject(MAT_DIALOG_DATA) private data: {photo: Photo}
@@ -63,7 +65,10 @@ export class PhotoViewerComponent implements AfterViewInit {
             scroll: [this.imageContainer.nativeElement.scrollLeft, this.imageContainer.nativeElement.scrollTop]
         };
         fromEvent(this.image.nativeElement, 'mousemove')
-            .pipe(takeUntil(race([fromEvent(document, 'mouseup'), fromEvent(document, 'mouseout')])))
+            .pipe(takeUntil(race([
+                fromEvent(document, 'mouseup'),
+                fromEvent(this.image.nativeElement, 'mouseleave')
+            ])))
             .subscribe((e: MouseEvent) => {
                 this.dragImageWithMouse(e.x, e.y);
             });
@@ -102,6 +107,10 @@ export class PhotoViewerComponent implements AfterViewInit {
             }));
             window.URL.revokeObjectURL(blob);
             link.remove();
+        }, error => {
+            console.error('download error', error);
+            this.snackBar.open('Download error. Please, try it later', null,
+                {horizontalPosition: 'end', verticalPosition: 'top', duration: 5000});
         });
     }
 

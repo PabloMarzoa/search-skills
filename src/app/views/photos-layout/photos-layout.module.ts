@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {PhotoTitlePipe} from './pipes/photo-title.pipe';
 import {MatMenuModule} from '@angular/material/menu';
 import {DivOverflowIndicatorDirective} from '../../directives/div-overflow-indicator.directive';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import {DivOverflowIndicatorDirective} from '../../directives/div-overflow-indic
         PhotosLayoutRouting,
         FormsModule,
         MatButtonModule,
-        MatMenuModule
+        MatMenuModule,
+        MatSnackBarModule
     ],
     declarations: [
         PhotosLayoutComponent,
