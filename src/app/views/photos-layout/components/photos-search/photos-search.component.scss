@@ -6,6 +6,7 @@
 }
 
 .photos-search-container .photos-search-icon{
+    pointer-events: none;
     &:hover {
         cursor: default;
     }
