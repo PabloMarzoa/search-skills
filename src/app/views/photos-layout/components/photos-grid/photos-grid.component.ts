@@ -30,4 +30,9 @@ export class PhotosGridComponent implements OnDestroy {
     onOpenPhoto(photo: Photo): void {
         this.dialog.open(PhotoViewerComponent, {data: {photo}});
     }
+
+    goToLink(url: string, event: Event): void {
+        event.stopPropagation();
+        window.open(url, '_blank');
+    }
 }

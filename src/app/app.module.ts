@@ -7,17 +7,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRouting,
-    MatIconModule,
-    HttpClientModule
-  ],
-  declarations: [
-    AppComponent
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRouting,
+        MatIconModule,
+        HttpClientModule
+    ],
+    declarations: [
+        AppComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

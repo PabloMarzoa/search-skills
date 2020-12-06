@@ -16,10 +16,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media(max-width: 500px) {
+        font-size: 0.9em;
+    }
 }
 
 .photos-layout-header .title {
     margin-left: 0.5em;
+    pointer-events: none;
 }
 
 .photos-layout-header .photos-search {
@@ -32,6 +36,12 @@
     background-color: #aeaeae;
     width: 100%;
     flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.photos-layout-body .photos-grid-container {
+    height: 100%;
     overflow: auto;
 }
 

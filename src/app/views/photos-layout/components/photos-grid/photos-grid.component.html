@@ -1,8 +1,38 @@
-<div class="photos-container">
+<div class="photos-container" *ngIf="(photos$ | async).total > 0 else noPhotos">
     <div class="photo-frame" *ngFor="let photo of (photos$ | async).results">
         <img class="photo"
              src="{{photo.urls.small}}"
-             alt="{{photo.alt_description}}"
-             (click)="onOpenPhoto(photo)"/>
+             alt="{{photo.alt_description}}"/>
+        <div class="photo-info"
+             (click)="onOpenPhoto(photo)">
+            <div class="photo-info-header" [title]="photo.updated_at | date: 'dd/MM/yyyy'">
+                {{photo | title}}
+            </div>
+            <div class="photo-info-footer">
+                <div class="user-data"
+                     [title]="'open profile'"
+                     (click)="goToLink(photo.user.links.html, $event)">
+                    <img class="user-profile-image"
+                         src="{{photo.user.profile_image.small}}"/>
+                    <span class="user-profile-name">
+                        {{photo.user.username}}
+                    </span>
+                </div>
+                <div class="photo-likes"
+                     [title]="'likes'">
+                    {{photo.likes}}
+                    <mat-icon class="photo-likes-icon">
+                        favorite
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<ng-template #noPhotos>
+    <div class="no-photos-indicator">
+        <mat-icon>no_photography</mat-icon>
+        No photos to show
+    </div>
+</ng-template>
