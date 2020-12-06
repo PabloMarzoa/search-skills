@@ -6,7 +6,12 @@
         <div class="photo-info"
              (click)="onOpenPhoto(photo)">
             <div class="photo-info-header" [title]="photo.updated_at | date: 'dd/MM/yyyy'">
-                {{photo | title}}
+                <span class="photo-info-title">{{photo | title}}</span>
+                <mat-icon class="photo-info-action"
+                          [title]="'show info'"
+                          (click)="onOpenInfoModal(photo, $event)">
+                    info
+                </mat-icon>
             </div>
             <div class="photo-info-footer">
                 <div class="user-data"
