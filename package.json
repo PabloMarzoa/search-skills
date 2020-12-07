@@ -1,6 +1,7 @@
 {
   "name": "search-skills",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Pablo Marzoa López de Pablo",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
