@@ -57,6 +57,7 @@
 
 <div mat-dialog-content class="photo-modal-body">
     <div class="photo-container" #imageContainer>
+        <mat-icon class="photo-loading">cached</mat-icon>
         <div class="photo-image" #image
              (wheel)="mouseWheelZoom($event)"
              (touchstart)="onStartDragByTouch($event)"
