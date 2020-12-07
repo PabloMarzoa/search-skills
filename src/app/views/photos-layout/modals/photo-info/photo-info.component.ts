@@ -5,7 +5,6 @@ import {PhotosRestService} from '../../services/photos-rest.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {take} from 'rxjs/operators';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {DatePipe} from "@angular/common";
 
 @Component({
     templateUrl: 'photo-info.component.html',

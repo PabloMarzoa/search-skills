@@ -1,3 +1,4 @@
+@import '../../../../scss/variables';
 // Header
 .photo-modal-header {
     display: flex;
@@ -5,6 +6,8 @@
     align-items: center;
     user-select: none;
     width: 100%;
+    color: $text-color;
+    font-weight: bolder;
     &:hover {
         cursor: default;
     }
@@ -30,12 +33,15 @@
     width: 240px;
     display: flex;
     justify-content: flex-end;
-    &.info {
-        width: 60px;
-    }
     @media (max-width: 576px ) {
         display: none;
     }
+}
+
+.photo-modal-header .photo-modal-actions-info {
+    display: flex;
+    justify-content: flex-end;
+    width: 60px;
 }
 
 .photo-modal-header .photo-modal-menu {
@@ -65,12 +71,38 @@
 }
 
 .photo-modal-body .photo-container {
+    position: relative;
     height: 75vh;
     width: 75vw;
     overflow: hidden;
     @media (max-width: 576px ) {
         width: 70vw;
     }
+}
+
+.photo-modal-body .photo-info-form {
+}
+
+.photo-info-form .photo-info-form-loading {
+    height: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.photo-container .photo-loading {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    color: $text-color;
+    font-size: 3em;
+    animation: infinite spin 600ms;
 }
 
 .photo-container .photo-image {
@@ -80,6 +112,8 @@
     background-repeat: no-repeat;
     background-position: center;
     transition: transform linear 100ms;
+    border-radius: 4px;
+    z-index: 2;
     &:hover {
         cursor: crosshair;
     }

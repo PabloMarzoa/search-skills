@@ -19,8 +19,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {PhotoTitlePipe} from './pipes/photo-title.pipe';
 import {MatMenuModule} from '@angular/material/menu';
 import {DivOverflowIndicatorDirective} from '../../directives/div-overflow-indicator.directive';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {PhotoInfoComponent} from './modals/photo-info/photo-info.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import {PhotoInfoComponent} from './modals/photo-info/photo-info.component';
         ReactiveFormsModule,
         MatButtonModule,
         MatMenuModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatProgressBarModule
     ],
     declarations: [
         PhotosLayoutComponent,

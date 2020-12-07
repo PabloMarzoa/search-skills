@@ -2,7 +2,7 @@
     <div class="photo-modal-title info">
             Info
     </div>
-    <div class="photo-modal-actions info">
+    <div class="photo-modal-actions-info">
         <button mat-icon-button [title]="'close'" (click)="onClose()" color="warn">
             <mat-icon>close</mat-icon>
         </button>
@@ -57,5 +57,8 @@
                 <input [readonly]="true" matInput formControlName="published"/>
             </mat-form-field>
         </form>
+        <div class="photo-info-form-loading">
+            <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        </div>
     </div>
 </div>
