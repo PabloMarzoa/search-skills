@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+    margin: 0;
+    font-family: "Open Sans", serif !important;
+}
+
+
+// Material custom
+@media(max-width: 500px) {
+    .mat-paginator-range-label {
+        margin: 0 10px !important;
+    }
+}
+
+
+// Overflow indicator classes
+.overflow-bass {
+    &:before {
+        content: "";
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+}
+
+.overflow-top {
+    &:before {
+        @extend .overflow-bass;
+        box-shadow: inset 0 12px 5px -5px rgba(0, 0, 0, 0.35);
+    }
+}
+
+.overflow-bottom {
+    &:before {
+        @extend .overflow-bass;
+        box-shadow: inset 0 -12px 5px -5px rgba(0, 0, 0, 0.35);
+    }
+}
+
+.overflow-top-bottom {
+    &:before {
+        @extend .overflow-bass;
+        box-shadow: inset 0 -12px 5px -5px rgba(0, 0, 0, 0.35), inset 0 12px 5px -5px rgba(0, 0, 0, 0.35);
+    }
+}
+
+
+// Keyframes
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+

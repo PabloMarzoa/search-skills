@@ -1,0 +1,61 @@
+@import '../../../../scss/variables';
+.photos-layout-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+// header
+.photos-layout-container .photos-layout-header {
+    background: linear-gradient(to bottom, transparent 0, $light-background 100%);
+    color: $text-color;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media(max-width: 500px) {
+        font-size: 0.9em;
+    }
+}
+
+.photos-layout-header .title {
+    margin-left: 0.5em;
+    pointer-events: none;
+}
+
+.photos-layout-header .photos-search {
+    justify-self: center;
+}
+
+
+// body
+.photos-layout-container .photos-layout-body {
+    background-color: $light-background;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.photos-layout-body .photos-grid-container {
+    height: 100%;
+    overflow: auto;
+}
+
+
+// footer
+.photos-layout-container .photos-layout-footer {
+    background: linear-gradient(to top, transparent 0, $light-background 100%);
+    overflow: hidden;
+    color: $text-color;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+}
